@@ -4,9 +4,18 @@
   "description": "my first socket.io app",
   "dependencies": {
     "express": "^4.15.2",
+    "jquery": "^3.2.1",
+    "mongoose": "^4.12.4",
+    "passport": "^0.4.0",
+    "react": "^16.0.0",
+    "react-bootstrap": "^0.31.5",
+    "react-dom": "^16.0.0",
+    "react-router": "^4.2.0",
+    "react-transition-group": "^2.2.1",
+    "reactstrap": "^4.8.0",
     "socket.io": "^1.7.3"
   },
   "scripts": {
-    "start": "node index.js"
+    "start": "nodemon index.js"
   }
 }

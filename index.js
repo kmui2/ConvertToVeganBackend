@@ -8,7 +8,7 @@ const bodyParser = require('body-parser');
 
 const passport = require('passport');
 const mongoose = require('mongoose');
-const config = require('./config/database');
+const config = require('./database-config/database');
 
 // User Schema
 const BlogSchema = mongoose.Schema({

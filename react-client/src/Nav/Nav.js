@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import './Nbr.css';
+import './Nav.css';
 
-class Nbr extends Component {
+class Nav extends Component {
       render() {
         return (
-          <div className="Nbr">
+          <div className="Nav">
             <ul class="topnav">
               <li><a class="active" href="#home">Home</a></li>
               <li><a href="#news">News</a></li>
@@ -16,4 +16,4 @@ class Nbr extends Component {
       }
 }
 
-export default Nbr;
+export default Nav;

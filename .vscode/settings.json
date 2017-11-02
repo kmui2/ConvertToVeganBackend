@@ -1,0 +1,15 @@
+{
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/app.json": true,
+        "**/public": true,
+        "**/.gitignore": true,
+        "**/logo.svg": true,
+        "**/registerServiceWorker.js": true,
+        "**/*test.js": true
+    }
+}

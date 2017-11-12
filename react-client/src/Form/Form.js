@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import $ from 'jquery';
 import './Form.css';
+import { Grid, Row, Col } from 'react-flexbox-grid';
 
 
 class Form extends Component {
@@ -15,14 +16,22 @@ class Form extends Component {
         return (
             <div className="Form">
                 <form onSubmit={this.submit}>
-                    Title:<br />
-                    <input id="title" type="text" name="firstname" placeholder="Title" />
-                    <br />
-                    Blog Post:<br />
-                    <textarea id="post" rows="20" type="text" name="lastname" placeholder="Blog Post" />
-                
-                    <br /><br />
-                    <input type="submit" value="Submit" />
+                    <Row className="center-xs center-md center-lg center-sm">
+                        <Col >
+                            NonVegan Ingrediant:<br />
+                            <input id="title" type="text" name="firstname" placeholder="NonVegan" />
+                            <br />
+                        </Col>
+                    </Row>
+                    <Row className="center-xs center-md center-lg center-sm">
+                        <Col>
+                            Convert to:<br />
+                            <input id="post" type="text" name="lastname" placeholder="Vegan Ingredient" />
+                        
+                            <br /><br />
+                            <input className="waves-effect waves-light btn" type="submit" value="Submit" />
+                        </Col>
+                    </Row>
                 </form>
             </div>
         );

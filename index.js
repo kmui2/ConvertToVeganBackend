@@ -17,6 +17,9 @@ const BlogSchema = mongoose.Schema({
   },
   post: {
     type: String
+  },
+  id: {
+    type: String
   }
 });
 
@@ -84,4 +87,17 @@ app.get('/getBlogs', function (req, res) {
     console.log(blogs);
     res.send({success: true, blogs: blogs});
   })
+})
+
+app.post('/deleteBlog', function (req, res) {
+  console.log("deleteBlog post request received");
+  let id = req.body;
+  console.log(id);
+
+  Blog.deleteOne(id, function (err) {
+    if (err) return console.error(err);
+    console.log('successfully deleted the blog!')
+  }); 
+
+  res.send({success: true});
 })

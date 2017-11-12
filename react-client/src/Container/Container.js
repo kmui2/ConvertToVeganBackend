@@ -14,6 +14,8 @@ class Container extends Component {
         this.delete = this.delete.bind(this);
         this.addMore = this.addMore.bind(this);
         this.removeIngredient = this.removeIngredient.bind(this);
+        this.loadJSON = this.loadJSON.bind(this);
+        this.state = {};
         
         let id = this.guid();
         this.postsJsx = [<Row id={id} className="center-xs center-md center-lg center-sm">
@@ -46,6 +48,11 @@ class Container extends Component {
             let id = blog['id'];
             console.log(id);
 
+            // if (typeof(title) != String)
+            //     title = 'invalid';
+            // if (typeof(posts) != Object) 
+            //     posts = ['invalid'];
+
             let postsJsx = [];
             for (let post of posts) {
                 console.log(post)
@@ -72,6 +79,41 @@ class Container extends Component {
 
 
         }
+    }
+
+    loadJSON(event) {
+        function onReaderLoad(event){
+            //alert(event.target.result);
+            var obj = JSON.parse(event.target.result);
+            let json = JSON.parse(event.target.result);
+            // console.log(json);
+            for (let NonVegan in json) {
+                let blog = {
+                    title: NonVegan,
+                    post: json[NonVegan]
+                };
+                $.ajax({
+                    url: 'http://' + document.domain + ':' + 7070 + '/addBlog',
+                    type: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify(blog),
+                    success: success
+                });
+            }
+        }
+        function success(data) {
+            console.log(data);
+            this.forceUpdate();
+            this.setState(this.state);
+            window.location.reload();
+        }
+        success = success.bind(this);
+        console.log(event.target.file)
+        
+        var reader = new FileReader();
+        reader.onload = onReaderLoad;
+        reader.readAsText(event.target.files[0]);
+        
     }
 
     addMore() {
@@ -203,6 +245,7 @@ class Container extends Component {
     render() {
         return (
             <div className="container-class">
+                 <input style={{'display':'show'}} className="waves-effect waves-light btn blue" onChange={this.loadJSON} type="file" ref="file" accept=".json" id="fileInput"  />
 
                 <div className="Form">
                     <form onSubmit={this.submit}>

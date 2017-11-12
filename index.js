@@ -16,7 +16,7 @@ const BlogSchema = mongoose.Schema({
     type: String
   },
   post: {
-    type: String
+    type: Object
   },
   id: {
     type: String
